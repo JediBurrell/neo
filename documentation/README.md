@@ -6,4 +6,8 @@ _On top of adding the neo library, you may be required to use the Apache Commons
 
 **First Steps**
 	
-	[Creating Your First Project](https://github.com/JediBurrell/neo/master/documentation/creating_your_first_project.md)
+&nbsp;&nbsp;&nbsp;&nbsp;[Creating Your First Project](https://github.com/JediBurrell/neo/blob/master/documentation/creating_your_first_project.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Rendering To The Screen](https://github.com/JediBurrell/neo/blob/master/documentation/rendering_to_the_screen.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Making Objects](https://github.com/JediBurrell/neo/blob/master/documentation/making_objects.md)

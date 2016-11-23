@@ -6,7 +6,7 @@ Create a "Main" class, you may name it whatever you like, though it will be refe
 
 Make your class extend the Neo class.
 
-![Screenshot](https://raw.githubusercontent.com/JediBurrell/ColorsApp/master/documentation/images/extends_neo.png)
+![Screenshot](https://raw.githubusercontent.com/JediBurrell/neo/master/documentation/images/extends_neo.PNG)
 
 In eclipse you can Ctrl+Shift+M to auto-import the class. Otherwise, copy the following. You'll need to import the entire package.
 
@@ -14,7 +14,7 @@ In eclipse you can Ctrl+Shift+M to auto-import the class. Otherwise, copy the fo
 
 Create the constructor, you'll want to take in a Window parameter and call "super(window);" in the first line.
 
-![Screenshot](https://raw.githubusercontent.com/JediBurrell/ColorsApp/master/documentation/images/constructor.png)
+![Screenshot](https://raw.githubusercontent.com/JediBurrell/neo/master/documentation/images/constructor.PNG)
 
 Go ahead and create your main function.
 
@@ -56,6 +56,6 @@ And after that, start the Main variable as well.
 
 You can now run the program and see that a Window has been created.
 
-![Screenshot](https://raw.githubusercontent.com/JediBurrell/ColorsApp/master/documentation/images/a_window.png)
+![Screenshot](https://raw.githubusercontent.com/JediBurrell/neo/master/documentation/images/a_window.PNG)
 
-[Rendering To The Screen](https://github.com/JediBurrell/neo/master/documentation/rendering_to_the_screen.md)
+[Rendering To The Screen](https://github.com/JediBurrell/neo/blob/master/documentation/rendering_to_the_screen.md)
