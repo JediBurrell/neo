@@ -23,7 +23,7 @@ Implement the required methods.
 
 And override the onLoad method. Because you're not using Resources yet, it's not necessary, but it's still recommended to do your Scene setup in the onLoad function.
 
-You can leave it empty since there are no objects yet.
+You can leave it empty since there are no objects yet. Though do call the function at the bottom of the constructor.
 
 Add a global Neo variable, and in your constructor make your neo variable equal to the neo parameter.
 
