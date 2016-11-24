@@ -1,4 +1,4 @@
-#Rendering To The Screen
+#Making Objects
 
 So far we've created a Window that can display a color in the background. But let's create something worthwhile.
 
@@ -111,3 +111,5 @@ In these functions you'll call player.setVelX / player.setVelY, follow this diag
 We now have a moving player!
 
 ![Screenshot](https://raw.githubusercontent.com/JediBurrell/neo/master/documentation/images/moving_player.gif)
+
+[Animating Objects](https://github.com/JediBurrell/neo/blob/master/documentation/animating_objects.md)
