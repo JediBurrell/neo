@@ -52,4 +52,4 @@ Now at the bottom or the top of the tick function ( Override it, and don't forge
 
 Now whenever you need to add or remove objects, simply add it to the queue.
 
-[More On Physics](https://github.com/JediBurrell/neo/blob/master/documentation/more_on_physics.md)
+[More On Physics Part 1](https://github.com/JediBurrell/neo/blob/master/documentation/more_on_physics.md)
