@@ -15,8 +15,6 @@ import javax.imageio.ImageIO;
  */
 public class BufferedImageLoader {
 	
-	private BufferedImage image;
-	
 	/**
 	 *<strong><em>loadImage</em></strong><br /><br />
 	 * &emsp;Loads an image.
@@ -25,8 +23,8 @@ public class BufferedImageLoader {
 	 * @throws IOException if the image doesn't exist.
 	 * @since NEO.1
 	 */
-	public BufferedImage loadImage(String path) throws IOException{
-		image = ImageIO.read(getClass().getResourceAsStream(path));
+	public static BufferedImage loadImage(String path) throws IOException{
+		BufferedImage image = ImageIO.read(BufferedImageLoader.class.getResourceAsStream(path));
 		
 		return image;
 	}
@@ -41,8 +39,8 @@ public class BufferedImageLoader {
 	 * @throws IOException if the image doesn't exist.
 	 * @since NEO.1
 	 */
-	public BufferedImage loadImageFromRes(String path) throws IOException{
-		image = ImageIO.read(getClass().getResourceAsStream("/res/" + path));
+	public static BufferedImage loadImageFromRes(String path) throws IOException{
+		BufferedImage image = ImageIO.read(BufferedImageLoader.class.getResourceAsStream("/res/" + path));
 		
 		return image;
 	}
