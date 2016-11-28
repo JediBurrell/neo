@@ -22,6 +22,8 @@ public class SplashScene extends Scene{
 	private int current = 0;
 	private int tick = 0;
 	
+	private Neo neo;
+	
 	/**
 	 * <strong><em>SplashScene</em></strong><br /><br />
 	 * 
@@ -36,6 +38,7 @@ public class SplashScene extends Scene{
 	 */
 	public SplashScene(Scene scene, Neo neo) {
 		super(scene, neo);
+		this.neo = neo;
 	}
 	
 	/**
@@ -51,11 +54,12 @@ public class SplashScene extends Scene{
 	 */
 	public SplashScene(Neo neo) {
 		super(neo);
+		this.neo = neo;
 	}
 
 	@Override
 	public void render(Graphics g) {
-		
+		g.drawImage(images.get(current), 0, 0, neo.width(), neo.height(), null);
 	}
 	
 	/**
