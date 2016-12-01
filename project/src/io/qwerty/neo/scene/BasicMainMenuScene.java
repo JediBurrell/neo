@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import io.qwerty.neo.Neo;
+import io.qwerty.neo.framework.Handler;
 
 /**
  * <strong><em>BasicMainMenuScene</em></strong><br /><br />
@@ -18,6 +19,7 @@ public class BasicMainMenuScene extends Scene{
 
 	private Neo neo;
 	private Scene backgroundScene;
+	private BufferedImage logo;
 	
 	public BasicMainMenuScene(Neo neo) {
 		super(neo);
@@ -28,6 +30,12 @@ public class BasicMainMenuScene extends Scene{
 	public void render(Graphics g) {
 		if(backgroundScene!=null)
 			backgroundScene.render(g);
+		
+		if(logo!=null)
+			g.drawImage(logo, neo.width()/2-logo.getWidth()/2,
+					logo.getHeight()/2, logo.getWidth(), logo.getHeight(), null);
+		
+		handler.render(g);
 	}
 	
 	/**
@@ -85,6 +93,35 @@ public class BasicMainMenuScene extends Scene{
 			}
 			
 		};
+	}
+	
+	/**
+	 * <strong><em>setLogo</em></strong><br /><br />
+	 * 
+	 * Set the logo to display. Does not render if not set.
+	 * 
+	 * @since NEO.2
+	 * @author Jedi Burrell
+	 * 
+	 * @param BufferedImage
+	 */
+	public void setLogo(BufferedImage logo){
+		this.logo = logo;
+	}
+	
+	/**
+	 * <strong><em>getHandler</em></strong><br /><br />
+	 * 
+	 * Gets Handler object to add and remove objects.
+	 * 
+	 * @since NEO.2
+	 * @author Jedi Burrell
+	 * 
+	 * @return Handler
+	 */
+	public Handler getHandler(){
+
+		return handler;
 	}
 
 }
