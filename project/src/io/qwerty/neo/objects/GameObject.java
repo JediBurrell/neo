@@ -4,6 +4,8 @@ import io.qwerty.neo.framework.ObjectID;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.geom.Area;
 import java.util.LinkedList;
 
 /**
@@ -77,7 +79,9 @@ public abstract class GameObject {
 				if(object!=this){
 					// Make sure the boundaries aren't null to avoid an Exception.
 					if(object.getBounds()!=null){
-						if(object.getBounds().intersects(getBounds())){
+						Area a = new Area(object.getBounds());
+						a.intersect(new Area(getBounds()));
+						if(a.isEmpty()){
 							onCollision(object, object.getId());
 						}
 					}
@@ -121,10 +125,10 @@ public abstract class GameObject {
 	 * 
 	 * &emsp;Returns boundaries to help detect collisions.
 	 * 
-	 * @return Rectangle
-	 * @since NEO.1
+	 * @return Shape
+	 * @since NEO.2
 	 */
-	public abstract Rectangle getBounds();
+	public abstract Shape getBounds();
 	
 	/**
 	 * <strong><em>getX</em></strong><br /><br />

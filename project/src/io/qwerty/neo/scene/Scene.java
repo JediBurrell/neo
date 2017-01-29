@@ -192,7 +192,7 @@ public abstract class Scene {
 	 */
 	public boolean onHover(Rectangle r){
 		for(GameObject obj : handler.object){
-			if(r.intersects(obj.getBounds()))
+			if(obj.getBounds().intersects(r))
 				obj.onHover(r);
 		}
 		
@@ -210,7 +210,7 @@ public abstract class Scene {
 	 */
 	public boolean onClick(Rectangle r){
 		for(GameObject obj : handler.object){
-			if(r.intersects(obj.getBounds()))
+			if(obj.getBounds().intersects(r))
 				obj.onClick(r);
 		}
 		
@@ -228,7 +228,7 @@ public abstract class Scene {
 	 */
 	public boolean onTouch(Rectangle r){
 		for(GameObject obj : handler.object){
-			if(r.intersects(obj.getBounds()))
+			if(obj.getBounds().intersects(r))
 				obj.onTouch(r);
 		}
 		
