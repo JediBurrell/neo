@@ -3,6 +3,7 @@ package io.qwerty.neo.framework;
 import io.qwerty.neo.objects.GameObject;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 /**
@@ -18,6 +19,8 @@ public class Handler {
 	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 	
 	private GameObject tempObject;
+	private Rectangle renderBox = null;
+	private boolean shouldTick = true;
 	
 	/**
 	 * <strong><em>tick</em></strong><br /><br />
@@ -30,8 +33,15 @@ public class Handler {
 	 */
 	public void tick(){
 		for(int i = 0; i < object.size(); i++){
+			
+			if(renderBox!=null)
+				if(!shouldTick)
+					if(!tempObject.collides(renderBox))
+						return;
+				
 			tempObject = object.get(i);
 			tempObject.tick(object);
+			
 		}
 	}
 	
@@ -46,10 +56,45 @@ public class Handler {
 	public void render(Graphics g){
 		for(int i = 0; i < object.size(); i++){
 			
-			tempObject = object.get(i);
+			if(renderBox!=null)
+				if(!tempObject.collides(renderBox))
+					return;
 			
+			tempObject = object.get(i);
 			tempObject.render(g);
+			
 		}
+	}
+	
+	/**
+	 * <strong><em>setRenderBox</em></strong><br /><br />
+	 * 
+	 * &emsp;This will make sure that only objects in the view are rendered.<br />
+	 * &emsp;This should be updated whenever you move the camera.<br />
+	 * &emsp;If you don't call it, everything will be rendered regardless of position.
+	 * 
+	 * @param Rectangle - The Box.
+	 * @since NEO.2
+	 */
+	public void setRenderBox(Rectangle r){
+		
+		renderBox = r;
+		
+	}
+	
+	/**
+	 * <strong><em>setRenderBox</em></strong><br /><br />
+	 * 
+	 * &emsp;If you've set a renderBox, by default the objects outside the view will still tick.
+	 * &emsp;To increase FPS, if you don't need to tick things outside of view, set this to false.
+	 * 
+	 * @param shouldTick
+	 * @since NEO.2
+	 */
+	public void shouldTick(boolean shouldTick){
+		
+		this.shouldTick = shouldTick;
+		
 	}
 	
 	/**

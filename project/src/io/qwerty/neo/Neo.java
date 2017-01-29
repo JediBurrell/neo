@@ -31,6 +31,7 @@ public class Neo extends Canvas implements Runnable, ComponentListener, MouseLis
 	 */
 	private static final long serialVersionUID = 1L;
 	private boolean running = false;
+	private int fps;
 	protected Window window;
 	protected Thread thread;
 	public Scene scene;
@@ -53,7 +54,6 @@ public class Neo extends Canvas implements Runnable, ComponentListener, MouseLis
 		long timer = System.currentTimeMillis();
 		@SuppressWarnings("unused")
 		int updates = 0;
-		@SuppressWarnings("unused")
 		int frames = 0;
 		while(running){
 			long now = System.nanoTime();
@@ -69,10 +69,35 @@ public class Neo extends Canvas implements Runnable, ComponentListener, MouseLis
 					
 			if(System.currentTimeMillis() - timer > 1000){
 				timer += 1000;
+				fps = frames;
 				frames = 0;
 				updates = 0;
 			}
 		}
+	}
+	
+	/**
+	 * <strong><em>getFps</em></strong><br /><br />
+	 * 
+	 * &emsp;Returns the FPS.
+	 * 
+	 * @since NEO.2
+	 */
+	public int getFps(){
+		
+		return fps;
+	}
+	
+	/**
+	 * <strong><em>fps</em></strong><br /><br />
+	 * 
+	 * &emsp;Returns the FPS.
+	 * 
+	 * @since NEO.2
+	 */
+	public int fps(){
+		
+		return fps;
 	}
 	
 	/**
