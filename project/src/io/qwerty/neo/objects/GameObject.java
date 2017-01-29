@@ -81,7 +81,7 @@ public abstract class GameObject {
 					if(object.getBounds()!=null){
 						Area a = new Area(object.getBounds());
 						a.intersect(new Area(getBounds()));
-						if(a.isEmpty()){
+						if(!a.isEmpty()){
 							onCollision(object, object.getId());
 						}
 					}
@@ -116,6 +116,23 @@ public abstract class GameObject {
 	 * @since NEO.1
 	 */
 	public abstract void render(Graphics g);
+	
+	/**
+	 * <strong><em>collides</strong></em><br /><br />
+	 * 
+	 * &emsp; Compares boundaries with another Shape.
+	 * 
+	 * @return boolean
+	 * @since NEO.2
+	 */
+	public boolean collides(Shape s){
+
+		Area a = new Area(getBounds());
+		a.intersect(new Area(s));
+		return !a.isEmpty();
+		
+	}
+	
 	/*
 	 * To be overriden, getBounds() returns the boundaries of the GameObject.
 	 * This allows collisions to be made by checking with the intersects function.
