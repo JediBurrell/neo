@@ -19,3 +19,5 @@ _On top of adding the neo library, you may be required to use the Apache Commons
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[More On Physics Part 1](https://github.com/JediBurrell/neo/blob/master/documentation/more_on_physics.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[More On Physics Part 2](https://github.com/JediBurrell/neo/blob/master/documentation/more_on_physics_2.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Using Resources](https://github.com/JediBurrell/neo/blob/master/documentation/resources.md)

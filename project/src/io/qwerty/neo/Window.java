@@ -136,6 +136,36 @@ public class Window {
 	}
 	
 	/**
+	 * <strong><em>setFullscreen</em></strong><br /><br />
+	 * 
+	 * &emsp;Sets screen to fullscreen
+	 * 
+	 * @param fullscreen - eh?
+	 * @since NEO.2
+	 */
+	public void setFullscreen(boolean fullscreen){
+		
+		frame.setExtendedState(fullscreen ? JFrame.MAXIMIZED_BOTH : JFrame.NORMAL);
+		frame.setUndecorated(fullscreen);
+		frame.setAlwaysOnTop(fullscreen);
+		frame.requestFocus();
+		
+	}
+	
+	/**
+	 * <strong><em>requestFocus</em></strong><br /><br />
+	 * 
+	 * &emsp;Requests focus on your window.
+	 * 
+	 * @since NEO.2
+	 */
+	public void requestFocus(){
+		
+		frame.requestFocus();
+		
+	}
+	
+	/**
 	 * <strong><em>start</em></strong><br /><br />
 	 * 
 	 * &emsp;Start window.
