@@ -39,7 +39,7 @@ public class Handler {
 			if(renderBox!=null)
 				if(!shouldTick)
 					if(!tempObject.collides(renderBox))
-						return;
+						continue;
 			
 			tempObject.tick(object);
 			
@@ -61,7 +61,7 @@ public class Handler {
 			
 			if(renderBox!=null)
 				if(!tempObject.collides(renderBox))
-					return;
+					continue;
 			
 			tempObject.render(g);
 			
