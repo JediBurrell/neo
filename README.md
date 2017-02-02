@@ -1,5 +1,5 @@
 # neo
-![Header](https://d13yacurqjgara.cloudfront.net/users/1047255/screenshots/3112084/neo_logo.png)
+![Header](https://github.com/JediBurrell/neo/blob/master/documentation/images/neo_logo.png?raw=true)
 
 Neo is an open source Java library for ridding the first steps of 2D game development / GUI based application.
 
