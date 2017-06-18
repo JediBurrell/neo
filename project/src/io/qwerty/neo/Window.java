@@ -221,6 +221,9 @@ public class Window {
 	 * @since NEO.1
 	 */
 	public int getWidth() {
+		if(!shouldScale)
+			this.width = frame.getWidth();
+		
 		return width;
 	}
 
@@ -233,6 +236,9 @@ public class Window {
 	 * @since NEO.1
 	 */
 	public int getHeight() {
+		if(!shouldScale)
+			this.height = frame.getHeight();
+		
 		return height;
 	}
 	
