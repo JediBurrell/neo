@@ -120,7 +120,8 @@ public class Neo extends Canvas implements Runnable, ComponentListener, MouseLis
 		//////////////////////////////////
 		
 		//If resizable, it automatically scales the graphics.
-		g2d.scale((double)getWidth()/window.getWidth(), (double)getHeight()/window.getHeight());
+		if(window.getShouldScale())
+			g2d.scale((double)getWidth()/window.getWidth(), (double)getHeight()/window.getHeight());
 		
 		//Clears the screen, to change, call setColor.
 		g.fillRect(0, 0, (int)window.getWidth(), (int)window.getHeight());

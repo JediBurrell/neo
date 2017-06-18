@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 public class Window {
 
 	protected boolean resizable = false;
+	protected boolean shouldScale = true;
 	protected String title = "New Game";
 	protected int width, height;
 
@@ -122,6 +123,36 @@ public class Window {
 		frame.setResizable(this.resizable);
 		
 		return this;
+	}
+	
+	/**
+	 * <strong><em>setShouldScale</em></strong><br /><br />
+	 * 
+	 * &emsp;Sets the variable that scales the content.<br />
+	 * &emsp;By default, it is set to true.<br />
+	 * &emsp;When set to true, the content will scale to the new size when resized.
+	 * 
+	 * @param shouldScale - Whether or not, the content should scale.
+	 * @since NEO.2
+	 */
+	public Window setShouldScale(boolean shouldScale){
+		this.shouldScale = shouldScale;
+		
+		return this;
+	}
+	
+	/**
+	 * <strong><em>getShouldScale</em></strong><br /><br />
+	 * 
+	 * &emsp;Returns shouldScale, not for public use.
+	 * 
+	 * @param title - Title of Window.
+	 * @return Returns same Window.
+	 * @since NEO.2
+	 */
+	public boolean getShouldScale(){
+		
+		return shouldScale;
 	}
 	
 	public Window setContent(Neo neo) throws UnchangableException{
