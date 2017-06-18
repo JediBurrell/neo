@@ -222,7 +222,7 @@ public class Window {
 	 */
 	public int getWidth() {
 		if(!shouldScale)
-			this.width = frame.getWidth();
+			this.width = frame.getContentPane().getWidth();
 		
 		return width;
 	}
@@ -237,7 +237,7 @@ public class Window {
 	 */
 	public int getHeight() {
 		if(!shouldScale)
-			this.height = frame.getHeight();
+			this.height = frame.getContentPane().getHeight();
 		
 		return height;
 	}
