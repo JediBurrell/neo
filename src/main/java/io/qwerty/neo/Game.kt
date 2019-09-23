@@ -22,7 +22,7 @@ abstract class Game {
 
     /**
      * This is called right after everything is set up and ready to go.
-     * This is where you'll want to set up your Resources.
+     * This is where you'll want to set the CLASS_LOADER, and your Scene.
      */
     abstract fun start()
 
