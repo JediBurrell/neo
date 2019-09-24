@@ -1,9 +1,9 @@
 package io.qwerty.neo
 
 import io.qwerty.neo.framework.Resources
-import kotlinx.serialization.Optional
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
 
 class Settings {
 
@@ -14,9 +14,10 @@ class Settings {
          */
         var CLASS_LOADER: ClassLoader = Settings::class.java.classLoader
         set(loader) {
+            val json = Json(JsonConfiguration.Stable)
             val resources = loader.getResource("map.json")?.readText()
             if(!resources.isNullOrEmpty()) {
-                val map = Json.parse(ResourceMap.serializer(), resources)
+                val map = json.parse(ResourceMap.serializer(), resources)
                 map.textures?.forEach { k, v ->
                     Resources.addImage(k, v)
                 }
@@ -24,7 +25,7 @@ class Settings {
 
             val settings = loader.getResource("settings.json")?.readText()
             if(!settings.isNullOrEmpty()) {
-                val map = Json.parse(Settings.serializer(), settings)
+                val map = json.parse(Settings.serializer(), settings)
                 USE_LINEAR = map.USE_LINEAR
                     println("Set USE_LINEAR to $USE_LINEAR")
                 FRAMERATE_CAP = map.FRAMERATE_CAP
@@ -64,13 +65,13 @@ class Settings {
     }
 
     @Serializable
-    private data class ResourceMap(@Optional val textures: HashMap<String, String>? = null,
-                           @Optional val animations: HashMap<String, Animation>? = null)
+    private data class ResourceMap(val textures: HashMap<String, String>? = null,
+                           val animations: HashMap<String, Animation>? = null)
 
     @Serializable
-    private data class Animation(@Optional val frames: Array<String>? = null,
-                         @Optional val flipped_x: String = "",
-                         @Optional val flipped_y: String = "") {
+    private data class Animation(val frames: Array<String>? = null,
+                         val flipped_x: String = "",
+                         val flipped_y: String = "") {
         override fun equals(other: Any?): Boolean {
             if (this === other) return true
             if (javaClass != other?.javaClass) return false
@@ -92,11 +93,11 @@ class Settings {
 
     @Serializable
     private data class Settings(
-        @Optional val USE_LINEAR: Boolean = false,
-        @Optional val FRAMERATE_CAP: Int = 120,
-        @Optional val TICK_RATE: Int = 24,
-        @Optional val SCREEN_WIDTH: Int = 1280,
-        @Optional val SCREEN_HEIGHT: Int = 720
+        val USE_LINEAR: Boolean = false,
+        val FRAMERATE_CAP: Int = 120,
+        val TICK_RATE: Int = 24,
+        val SCREEN_WIDTH: Int = 1280,
+        val SCREEN_HEIGHT: Int = 720
     )
 
 }

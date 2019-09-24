@@ -23,7 +23,7 @@ class Texture {
         private set
 
     constructor(path: String) {
-        var data: ByteBuffer? = null
+        val data: ByteBuffer?
 
         try {
             data = stbi_load_from_memory(
@@ -68,8 +68,12 @@ class Texture {
         glDeleteTextures(id)
     }
 
-    fun equals(texture: Texture): Boolean {
-        return texture.id == id
+    override fun equals(other: Any?): Boolean {
+        if(other !is Texture)
+            return false
+        return other.id == id
     }
+
+    override fun hashCode(): Int = id
 
 }

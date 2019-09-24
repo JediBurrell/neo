@@ -45,7 +45,6 @@ class DesktopShader: Shader {
         // Catch vertex compilation errors.
         if(glGetShaderi(vs, GL_COMPILE_STATUS) != 1) {
             error(glGetShaderInfoLog(vs))
-            exitProcess(1)
         }
 
         // Create fragment shader.
@@ -56,7 +55,6 @@ class DesktopShader: Shader {
         // Catch fragment compilation errors.
         if(glGetShaderi(fs, GL_COMPILE_STATUS) != 1) {
             error(glGetShaderInfoLog(fs))
-            exitProcess(1)
         }
 
         glAttachShader(program, vs)
@@ -70,13 +68,11 @@ class DesktopShader: Shader {
         glLinkProgram(program)
         if(glGetProgrami(program, GL_LINK_STATUS) != 1) {
             error(glGetProgramInfoLog(program))
-            exitProcess(1)
         }
 
         glValidateProgram(program)
         if(glGetProgrami(program, GL_VALIDATE_STATUS) != 1) {
             error(glGetProgramInfoLog(program))
-            exitProcess(1)
         }
     }
 
