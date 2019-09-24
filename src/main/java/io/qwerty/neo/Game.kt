@@ -13,6 +13,7 @@ abstract class Game {
      * To render anything on the screen, you'll need to set this to a Scene object.
      */
     lateinit var scene: Scene
+    var fps: Int = 0
 
     /**
      * This function should handle non-graphical functionality, such as routine movements.

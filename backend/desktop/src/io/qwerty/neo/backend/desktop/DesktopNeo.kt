@@ -25,6 +25,10 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
     private var run: Boolean = false
     private var window: Long = 0L
 
+    private var pTime: Double = 0.0
+    private var tickTime: Double = 0.0
+    private var frames: Int = 0
+
     /**
      * This begins the game. It'll set up the window and immediately begin the Game instance provided.
      */
@@ -63,7 +67,8 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
         val shader = DesktopShader()
 
         val rate: Double = 1.0 / Settings.TICK_RATE
-        var pTime: Double = glfwGetTime()
+        pTime = glfwGetTime()
+        tickTime = pTime
         var gap = 0.0
         while(!glfwWindowShouldClose(window)) {
             glfwPollEvents()
@@ -73,8 +78,8 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
             // TICK LOOP //
 
             val time = glfwGetTime()
-            val elapsed = time - pTime
-            pTime = time
+            val elapsed = time - tickTime
+            tickTime = time
             gap += elapsed
 
             while(gap > rate) {
@@ -84,6 +89,19 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
             }
 
             // TICK LOOP //
+
+
+            // FPS COUNTER //
+
+            frames++
+
+            if(time - pTime >= 1.0) {
+                game.fps = frames
+                frames = 0
+                pTime = time
+            }
+
+            // FPS COUNTER //
 
             // RENDERING //
 
