@@ -1,3 +1,10 @@
 sample/
-.idea/
 target/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.iml
+.idea/
+out/
