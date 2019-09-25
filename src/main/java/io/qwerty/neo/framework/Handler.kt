@@ -29,7 +29,8 @@ class Handler {
      */
     fun render(canvas: Canvas) {
         objects.forEach{
-            it.render(canvas)
+            if(it.shouldRender())
+                it.render(canvas)
         }
 
         // It is now safe to remove these objects as items in the handler are no longer being looped through.
