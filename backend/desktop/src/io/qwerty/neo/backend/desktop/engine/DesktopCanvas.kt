@@ -12,13 +12,13 @@ class DesktopCanvas : Canvas {
 
     var camera: Camera? = null
 
-    override fun drawImage(texture: Texture, x: Float, y: Float, width: Float, height: Float) {
+    override fun drawImage(texture: Texture, x: Float, y: Float, z: Float, width: Float, height: Float) {
         val model = Model(
             vertices = floatArrayOf(
-                x, y, 0f,
-                x+width, y, 0f,
-                x+width, y+height, 0f,
-                x, y+height, 0f
+                x, y, z,
+                x+width, y, z,
+                x+width, y+height, z,
+                x, y+height, z
             ),
             texCoords = floatArrayOf(
                 0f, 0f,
@@ -37,14 +37,14 @@ class DesktopCanvas : Canvas {
         texture.unbind()
     }
 
-    override fun drawImage(texture: String, x: Float, y: Float, width: Float, height: Float) {
-        glColor4f(1f, 1f, 1f, 1f)
+    override fun drawImage(texture: String, x: Float, y: Float, z: Float, width: Float, height: Float) {
+        glColor4f(0f, 0f, 0f, 0f)
         val model = Model(
             vertices = floatArrayOf(
-                x, y, 0f,
-                x+width, y, 0f,
-                x+width, y+height, 0f,
-                x, y+height, 0f
+                x, y, z,
+                x+width, y, z,
+                x+width, y+height, z,
+                x, y+height, z
             ),
             texCoords = floatArrayOf(
                 0f, 0f,
@@ -65,13 +65,19 @@ class DesktopCanvas : Canvas {
         }
     }
 
-    override fun drawRect(x: Float, y: Float, width: Float, height: Float) {
-        val model: Model = Model(
+    override fun drawRect(x: Float, y: Float, z: Float, width: Float, height: Float) {
+        val model = Model(
             vertices = floatArrayOf(
-                x, y, 0f,
-                x+width, y, 0f,
-                x+width, y+height, 0f,
-                x, y+height, 0f
+                x, y, z,
+                x+width, y, z,
+                x+width, y+height, z,
+                x, y+height, z
+            ),
+            texCoords = floatArrayOf(
+                0f, 0f,
+                1f, 0f,
+                1f, 1f,
+                0f, 1f
             ),
             indices = intArrayOf(
                 0, 1, 2,
@@ -82,7 +88,7 @@ class DesktopCanvas : Canvas {
         model.render()
     }
 
-    override fun drawOval(x: Double, y: Double, width: Double, height: Double) {
+    override fun drawOval(x: Double, y: Double, z: Float, width: Double, height: Double) {
 
     }
 

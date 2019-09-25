@@ -2,17 +2,17 @@ package io.qwerty.neo.rendering
 
 import io.qwerty.neo.Settings
 import io.qwerty.neo.objects.GameObject
-import org.joml.Matrix3f
 import org.joml.Matrix4f
-import org.joml.Vector3d
 import org.joml.Vector3f
 
 class Camera {
     val projection: Matrix4f = Matrix4f()
-        .ortho2D(-Settings.SCREEN_WIDTH/2f,
+        .ortho(-Settings.SCREEN_WIDTH/2f,
             Settings.SCREEN_WIDTH/2f,
             -Settings.SCREEN_HEIGHT/2f,
-            Settings.SCREEN_HEIGHT/2f)
+            Settings.SCREEN_HEIGHT/2f,
+            -10f,
+            10f)
 
     fun projection(): Matrix4f {
         val target = Matrix4f()

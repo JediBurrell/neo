@@ -60,8 +60,11 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
 
     private fun loop() {
         glEnable(GL_TEXTURE_2D)
+        glEnable(GL_DEPTH_TEST)
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glEnable(GL_ALPHA_TEST)
+        glAlphaFunc(GL_NOTEQUAL, 0f)
         glClearColor(1f, 1f, 1f, 1f)
 
         val shader = DesktopShader()
@@ -73,7 +76,7 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
         while(!glfwWindowShouldClose(window)) {
             glfwPollEvents()
 
-            glClear(GL_COLOR_BUFFER_BIT)
+            glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT)
 
             // TICK LOOP //
 
@@ -89,7 +92,6 @@ class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopN
             }
 
             // TICK LOOP //
-
 
             // FPS COUNTER //
 
