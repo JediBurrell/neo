@@ -145,8 +145,7 @@ class DesktopNeo(private val game: Game, private val config: DesktopNeoConfig = 
 
         // Apply vsync.
         glfwMakeContextCurrent(window)
-        if(config.vsync)
-            glfwSwapInterval(1)
+        glfwSwapInterval(if(config.vsync) 1 else 0)
 
         // Show the window.
         glfwShowWindow(window)
