@@ -2,7 +2,7 @@ package io.qwerty.neo.framework
 
 import io.qwerty.neo.engine.Canvas
 import io.qwerty.neo.objects.GameObject
-import java.util.*
+import java.util.LinkedList
 
 /**
  * The Handler is a utility for storing and updating objects en masse.
