@@ -6,7 +6,6 @@ import io.qwerty.neo.engine.rendering.Shader
 import org.joml.Matrix4f
 import org.lwjgl.BufferUtils
 import org.lwjgl.opengl.GL20.*
-import kotlin.system.exitProcess
 
 class DesktopShader: Shader {
 

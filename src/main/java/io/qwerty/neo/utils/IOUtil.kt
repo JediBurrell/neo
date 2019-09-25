@@ -5,13 +5,14 @@
 package io.qwerty.neo.utils
 
 import io.qwerty.neo.Settings
+import org.lwjgl.BufferUtils.createByteBuffer
 
-import java.io.*
-import java.nio.*
-import java.nio.channels.*
-import java.nio.file.*
 
-import org.lwjgl.BufferUtils.*
+import java.io.IOException
+import java.nio.ByteBuffer
+import java.nio.channels.Channels
+import java.nio.file.Files
+import java.nio.file.Paths
 
 object IOUtil {
 

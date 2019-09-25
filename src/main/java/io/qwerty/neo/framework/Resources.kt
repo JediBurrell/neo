@@ -24,7 +24,7 @@ class Resources {
          */
         fun addImage(name: String, path: String) {
             val tex = Texture(path)
-            if(tex.equals(Resources.noTexture)) {
+            if(tex == noTexture) {
                 error("Failed to create resource $name")
             } else {
                 textureMap.putIfAbsent(name, tex)
@@ -47,9 +47,9 @@ class Resources {
          * This is used internally, and though can be used, there's no reason to use this over a string.
          */
         fun get(name: String): Texture? {
-            if(textureMap.getOrDefault(name, Resources.noTexture) == Resources.noTexture)
+            if(textureMap.getOrDefault(name, noTexture) == noTexture)
                 println("There was no resources under name $name")
-            return textureMap.getOrDefault(name, Resources.noTexture)
+            return textureMap.getOrDefault(name, noTexture)
         }
     }
 

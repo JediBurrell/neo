@@ -6,7 +6,7 @@ import org.joml.Matrix4f
 import org.joml.Vector3f
 
 class Camera {
-    val projection: Matrix4f = Matrix4f()
+    private val projection: Matrix4f = Matrix4f()
         .ortho(-Settings.SCREEN_WIDTH/2f,
             Settings.SCREEN_WIDTH/2f,
             -Settings.SCREEN_HEIGHT/2f,

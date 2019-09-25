@@ -9,7 +9,7 @@ import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWErrorCallback
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11.*
-import org.lwjgl.stb.STBImage.*
+import org.lwjgl.stb.STBImage.stbi_set_flip_vertically_on_load
 import org.lwjgl.system.MemoryUtil.NULL
 
 
@@ -20,7 +20,7 @@ import org.lwjgl.system.MemoryUtil.NULL
  * @param game - Your main class.
  * @param config - Configuration for the window, giving ou the ability to set the size, title, or make it fullscreen.
  */
-class DesktopNeo(val game: Game, private val config: DesktopNeoConfig = DesktopNeoConfig()) : Neo {
+class DesktopNeo(private val game: Game, private val config: DesktopNeoConfig = DesktopNeoConfig()) : Neo {
 
     private var run: Boolean = false
     private var window: Long = 0L

@@ -6,7 +6,9 @@ import org.lwjgl.BufferUtils
 import org.lwjgl.opengl.GL11.*
 import org.lwjgl.opengl.GL13.GL_TEXTURE0
 import org.lwjgl.opengl.GL13.glActiveTexture
-import org.lwjgl.stb.STBImage.*
+import org.lwjgl.stb.STBImage.STBI_rgb_alpha
+import org.lwjgl.stb.STBImage.stbi_load_from_memory
+import org.lwjgl.stb.STBImage.stbi_image_free
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.IntBuffer
@@ -20,7 +22,6 @@ class Texture {
     private var height = BufferUtils.createIntBuffer(1)
     private val channel: IntBuffer = BufferUtils.createIntBuffer(1)
     private var id: Int = 0
-        private set
 
     constructor(path: String) {
         val data: ByteBuffer?
