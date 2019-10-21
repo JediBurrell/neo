@@ -81,9 +81,9 @@ class DesktopNeo(private val game: Game, private val config: DesktopNeoConfig = 
             // TICK LOOP //
 
             val time = glfwGetTime()
-            val elapsed = time - tickTime
+            val delta = time - tickTime
             tickTime = time
-            gap += elapsed
+            gap += delta
 
             while(gap > rate) {
                 game.tick()
@@ -111,7 +111,7 @@ class DesktopNeo(private val game: Game, private val config: DesktopNeoConfig = 
             shader.setUniform("sampler", 0)
             shader.setUniform("projection", game.scene.camera.projection())
 
-            game.scene.render(DesktopCanvas())
+            game.scene.render(DesktopCanvas(game), delta.toFloat())
 
             // RENDERING //
 
@@ -129,6 +129,7 @@ class DesktopNeo(private val game: Game, private val config: DesktopNeoConfig = 
         // Apply window options.
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE)
         glfwWindowHint(GLFW_RESIZABLE, if(config.resizable) GLFW_TRUE else GLFW_FALSE)
+        glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_TRUE)
 
         // Create the window.
         window = glfwCreateWindow(config.width, config.height, config.title,
