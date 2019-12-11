@@ -1,5 +1,6 @@
 package io.qwerty.neo.engine
 
+import io.qwerty.neo.engine.rendering.Shader
 import io.qwerty.neo.engine.rendering.Texture
 import io.qwerty.neo.rendering.Camera
 
@@ -21,6 +22,9 @@ interface Canvas {
 
     fun drawOval(x: Double, y: Double, width: Double, height: Double) = drawOval(x, y, 0f, width, height)
     fun drawOval(x: Double, y: Double, z: Float, width: Double, height: Double)
+
+    fun withShader(shader: String, passthrough: ((Shader)->Unit), rendering: (()->Unit))
+    fun withShader(shader: String, rendering: (()->Unit)) = withShader(shader, {}, rendering)
 
     fun setColor(r: Float, g: Float, b: Float, a: Float = 1f)
 

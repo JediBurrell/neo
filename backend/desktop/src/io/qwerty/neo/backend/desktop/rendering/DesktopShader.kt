@@ -11,7 +11,7 @@ class DesktopShader: Shader {
 
     var vs: Int      = 0
     var fs: Int      = 0
-    var program: Int = 0
+                                                                                                                                                                                                    var program: Int = 0
 
     constructor(vertex: String, fragment: String = vertex): super() {
         val vertexFile = Settings.CLASS_LOADER.getResource("$vertex.vs")?.readText()
